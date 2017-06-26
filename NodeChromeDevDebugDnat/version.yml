@@ -1,0 +1,8 @@
+image:
+  name: kurento/node-chrome-dev-debug
+  version: 3.4.0-dnat
+  namespace: selenium
+  authors: kurento-team
+  parent_version: 3.4.0
+  extra_tags:
+    - latest-dev-dnat
