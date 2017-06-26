@@ -1,5 +1,5 @@
 image:
-  name: kurento/node-chrome-debug
+  name: kurento/node-chrome-beta-debug
   version: 3.4.0-dnat
   namespace: selenium
   authors: kurento-team
