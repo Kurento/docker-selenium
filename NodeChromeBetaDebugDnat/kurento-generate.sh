@@ -2,8 +2,19 @@
 
 echo "##################### EXECUTE: kurento-generate.sh #####################"
 
-sed -i 's/google-chrome-stable/google-chrome-beta/' ./Dockerfile
-sed -i 's|COPY chrome_launcher.sh /opt/google/chrome/google-chrome|COPY chrome_launcher.sh /opt/google/chrome-beta/google-chrome|' ./Dockerfile
-sed -i 's|RUN chmod +x /opt/google/chrome/google-chrome|RUN chmod +x /opt/google/chrome-beta/google-chrome|' ./Dockerfile
-sed -i 's|export CHROME_VERSION_EXTRA="stable"|export CHROME_VERSION_EXTRA="beta"|' ./chrome_launcher.sh
+VERSION=$1
+NAMESPACE=$2
+AUTHORS=$3
 
+cd ../NodeDebug && ./generate.sh NodeChromeBetaDebugDnat node-chrome-beta-debug Chrome $1 $2 $3
+
+cd ../NodeChromeBetaDebugDnat
+cp entry_point.sh entry_point_selenium.sh
+
+cat > entry_point.sh <<-EOF
+#!/bin/bash
+cd /opt/bin/
+./entry_point_dnat.sh
+EOF
+
+sed -i 's/COPY entry_point.sh \/opt\/bin\/entry_point.sh/COPY entry_point.sh entry_point_selenium.sh entry_point_dnat.sh \/opt\/bin\//' Dockerfile
