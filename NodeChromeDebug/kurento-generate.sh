@@ -1,6 +1,5 @@
 #!/bin/bash -x
 
-echo "##################### EXECUTE: kurento-generata.sh #####################"
+echo "##################### EXECUTE: kurento-generate.sh #####################"
 
-cp ../NodeChrome/generate_config .
-
+cd ../NodeDebug && ./generate.sh NodeChromeDebug node-chrome Chrome $TAG $IMAGE_NAMESPACE $IMAGE_AUTHORS
