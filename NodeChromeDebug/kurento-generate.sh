@@ -2,4 +2,9 @@
 
 echo "##################### EXECUTE: kurento-generate.sh #####################"
 
-cd ../NodeDebug && ./generate.sh NodeChromeDebug node-chrome Chrome $TAG $IMAGE_NAMESPACE $IMAGE_AUTHORS
+VERSION=$1
+NAMESPACE=$2
+AUTHORS=$3
+
+cd ../NodeDebug && ./generate.sh NodeChromeDebug node-chrome Chrome $1 $2 $3
+
