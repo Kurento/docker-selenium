@@ -2,8 +2,9 @@
 
 echo "##################### EXECUTE: kurento-generate.sh #####################"
 
-sed -i 's/node-base/node-chrome-beta/' ./Dockerfile
-cat ../NodeChromeDebug/Dockerfile.txt >> ./Dockerfile
-cp ../NodeChrome/chrome_launcher.sh .
-cp ../NodeChrome/generate_config .
-cp ../NodeChromeDebug/entry_point.sh .
+VERSION=$1
+NAMESPACE=$2
+AUTHORS=$3
+
+cd ../NodeDebug && ./generate.sh NodeChromeBetaDebug node-chrome-beta Chrome $1 $2 $3
+
