@@ -10,4 +10,4 @@ do
   ip addr show|grep 192.168
 done
 
-exec /opt/bin/entry_point.sh
+exec /opt/bin/entry_point_selenium.sh
